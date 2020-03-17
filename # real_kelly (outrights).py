@@ -25,7 +25,7 @@ def optimize(selections: list, existing_bets: list, bankroll: float):
             # ADD ALL WINS TO END_BANKROLL
             end_bankrolls[index_selection] += stakes[index_selection] * (selection['odds_book'] - 1)
 
-            # DEDUCT ALL LOSSES TO END_BANKROLL
+            # DEDUCT ALL LOSSES FROM END_BANKROLL
             for index_end_bankroll, end_bankroll in enumerate(end_bankrolls):
                 if index_end_bankroll != index_selection:
                     end_bankrolls[index_end_bankroll] -= stakes[index_selection]
