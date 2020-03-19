@@ -42,7 +42,7 @@ def optimize(selections: list, existing_bets: list, bankroll: float):
 
     # FIND THE GLOBAL MAXIMUM USING SCIPY'S CONSTRAINED MINIMIZATION
     # FOR ALTERNATIVE ALGORITHMS SEE https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html
-    res = scipy.optimize.minimize(fun=f, x0=guess, method='L-BFGS-B', bounds=bounds, options={'maxiter': 1000000})
+    res = scipy.optimize.minimize(fun=f, x0=guess, method='L-BFGS-B', bounds=bounds, options={'maxcor': 10000, 'gtol': 1e-10, 'eps': 1e-08, 'maxfun': 1000000, 'maxiter': 1000000})
 
     runtime = time.time() - start_time
 
